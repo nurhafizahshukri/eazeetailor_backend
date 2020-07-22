@@ -2,8 +2,8 @@ const db = require('./api/database')
 
 async function setupDatabase(req, res, next) {
     // To delete all the collections
-    // const collections = ['users', 'todos']
-    // collections.forEach(async (collection) => await deleteCollection(collection))
+    const collections = ['members']
+    collections.forEach(async (collection) => await deleteCollection(collection))
 
     // Add documents to the todos collection
     addDocuments(
