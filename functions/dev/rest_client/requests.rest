@@ -1,0 +1,49 @@
+##############################################################
+# Mobile Application Programming (SCSJ3623)
+# Semester 2, 2019/2020
+##############################################################
+
+# REST API Server on Local Firebase
+# @baseUrl = http://localhost:5001/eazeetailor/us-central1/api
+
+# REST API Server on Live Firebase
+@baseUrl = http://us-central1-eazeetailor.cloudfunctions.net/api
+
+### Getting the list of members
+GET {{baseUrl}}/members
+
+###  Getting a todo of given id
+GET {{baseUrl}}/members/8dbnBLtq63ax76e04O5h
+
+###  Create a new todo
+POST {{baseUrl}}/members
+Content-Type: application/json
+
+{ 
+    "name": "<Enter Name>",
+    "sleeve": 0.0,
+    "chest": 0.0,
+    "body": 0.0 }
+
+### Update the status of a given todo (whether is completed or not)
+PATCH {{baseUrl}}/members/8dbnBLtq63ax76e04O5h
+Content-Type: application/json
+
+{
+    "sleeve":23.0
+}
+
+
+### Replace the entire fields of a given todo
+PUT {{baseUrl}}/members/8dbnBLtq63ax76e04O5h
+Content-Type: application/json
+
+{
+    "name": "Zya",
+    "sleeve": 23.0,
+    "chest": 16.0,
+    "body": 27.0 
+}
+
+### Deleting a given todo
+DELETE {{baseUrl}}/members/8dbnBLtq63ax76e04O5h
