@@ -3,10 +3,12 @@ const express = require("express");
 const app = express();
 const membersRouter = require("./api/controllers/membersize_controller");
 const userRouter = require("./api/controllers/user_controller");
+const appointmentRouter = require("./controllers/appointment_controller");
 
 app.use(express.json());
 app.use("/members", membersRouter);
 app.use("/user", userRouter);
+app.use("/appointment", appointmentRouter);
 
 exports.api = functions.https.onRequest(app);
 
