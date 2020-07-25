@@ -10,10 +10,10 @@
 @baseUrl = http://us-central1-eazeetailor.cloudfunctions.net/api
 
 ### Getting the list of members
-GET {{baseUrl}}/members
+GET {{baseUrl}}/user
 
 ###  Getting a todo of given id
-GET {{baseUrl}}/members/8dbnBLtq63ax76e04O5h
+GET {{baseUrl}}/user/48ZF56GktLFViFwDlPQL
 
 ###  Create a new todo
 POST {{baseUrl}}/members
