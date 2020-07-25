@@ -1,21 +1,20 @@
-const membersModel = require("../models/membersize_model");
+const UserModel = require("../models/user_model");
 const express = require("express");
 const router = express.Router();
 
-// Get all size
 router.get("/", async (req, res, next) => {
   try {
-    const result = await membersModel.get();
+    const result = await UserModel.get();
     return res.json(result);
   } catch (e) {
     return next(e);
   }
 });
 
-// Get one size
+// Get one user
 router.get("/:id", async (req, res, next) => {
   try {
-    const result = await membersModel.getById(req.params.id);
+    const result = await UserModel.getById(req.params.id);
     if (!result) return res.sendStatus(404);
     return res.json(result);
   } catch (e) {
@@ -23,10 +22,10 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// Create a new size
+// Create a user
 router.post("/", async (req, res, next) => {
   try {
-    const result = await membersModel.create(req.body);
+    const result = await UserModel.create(req.body);
     if (!result) return res.sendStatus(409);
     return res.status(201).json(result);
   } catch (e) {
@@ -34,10 +33,10 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// Delete a member size
+// Delete a user
 router.delete("/:id", async (req, res, next) => {
   try {
-    const result = await membersModel.delete(req.params.id);
+    const result = await UserModel.delete(req.params.id);
     if (!result) return res.sendStatus(404);
     return res.sendStatus(200);
   } catch (e) {
@@ -45,18 +44,18 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-// Update a size
+// Update a user
 router.patch("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
 
-    const doc = await membersModel.getById(id);
+    const doc = await UserModel.getById(id);
     if (!doc) return res.sendStatus(404);
 
     Object.keys(data).forEach((key) => (doc[key] = data[key]));
 
-    const updateResult = await membersModel.update(id, doc);
+    const updateResult = await UserModel.update(id, doc);
     if (!updateResult) return res.sendStatus(404);
 
     return res.json(doc);
@@ -65,13 +64,13 @@ router.patch("/:id", async (req, res, next) => {
   }
 });
 
-// Replace a size
+// Replace a user
 router.put("/:id", async (req, res, next) => {
   try {
-    const updateResult = await membersModel.update(req.params.id, req.body);
+    const updateResult = await UserModel.update(req.params.id, req.body);
     if (!updateResult) return res.sendStatus(404);
 
-    const result = await membersModel.getById(req.params.id);
+    const result = await UserModel.getById(req.params.id);
     return res.json(result);
   } catch (e) {
     return next(e);
