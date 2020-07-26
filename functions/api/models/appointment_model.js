@@ -5,7 +5,7 @@ const database = require("../database");
 class ApptsModel {
   constructor() {
     if (this.instance) return this.instance;
-    ApptsMode.instance = this;
+    ApptsModel.instance = this;
   }
 
   get() {

@@ -10,7 +10,7 @@
 @baseUrl = http://us-central1-eazeetailor.cloudfunctions.net/api
 
 ### Getting the list of members
-GET {{baseUrl}}/user
+GET {{baseUrl}}/appointment
 
 ###  Getting a todo of given id
 GET {{baseUrl}}/user/48ZF56GktLFViFwDlPQL
